@@ -1,3 +1,11 @@
+
+<?php 
+
+$registrar = new ArchivoC();
+$registrar -> InsertF();
+
+?>
+
 <div class="col-sm-3"></div>
 <div class="col-6 grid-margin stretch-card">
     <div class="card">
@@ -22,18 +30,13 @@
                     <input type="text" class="form-control" id="usuarioI" placeholder="Name" name="usuarioI" value="<?php print $_SESSION["Usr"] ?>" readonly required >
                     <input type="hidden" id="usuarioIdI" name="usuarioIdI" value="<?php print $_SESSION["usrId"] ?>"/>
                 </div>
-               
-                <button type="submit" class="btn btn-primary me-2">Submit</button>
-                <a  class="btn btn-light" href="inicio.php?root=principal">Cancel</a>
+               <div class="text-center">
+                <button type="submit" class="btn btn-primary me-2">Enviar</button>
+                <a  class="btn btn-light" href="inicio.php?root=principal">Cancelar</a>
+                </div>
             </form>
         </div>
     </div>
+    
 </div>
 <div class="col-sm-3"></div>
-
-<?php 
-
-$registrar = new ArchivoC();
-$registrar -> InsertF();
-
-?>

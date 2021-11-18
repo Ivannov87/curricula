@@ -1,6 +1,6 @@
-<div class="col-sm-2"></div>
+<div class="col-sm-0"></div>
 
-<div class="col-lg-8 grid-margin stretch-card">
+<div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Generados</h4>
@@ -24,13 +24,10 @@
 
 
                         <?php
-                        if (!isset($_SESSION)) {
-                            session_start();
-                            if (!$_SESSION["usrId"]) {
+                       
                                 $cargados = new ArchivoC();
                                 $cargados->GetDoctos();
-                            }
-                        }
+                            
                         ?>
 
 
@@ -41,4 +38,4 @@
     </div>
 </div>
 
-<div class="col-sm-2"></div>
+<div class="col-sm-0"></div>

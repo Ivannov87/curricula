@@ -24,6 +24,9 @@
 	<link rel="stylesheet" href="view/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
 	<link rel="stylesheet" href="js/select.dataTables.min.css">
 
+	<!-- Notifications -->
+	<link rel="stylesheet" href="view/vendors/jquery-toast-plugin/jquery.toast.min.css">
+
 	<!-- Bootstrap -->
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="view/js/popper.min.js"></script>
@@ -87,6 +90,12 @@
 	<script src="view/js/todolist.js"></script>
 	<script src="view/js/dashboard.js"></script>
 	<script src="view/js/Chart.roundedBarCharts.js"></script>
+
+	<!-- Notification -->
+	<script src="view/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
+	<script src="view/js/notification.js"></script>
+	<script src="view/js/toastDemo.js"></script>
+	
 </body>
 
 

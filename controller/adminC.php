@@ -23,7 +23,7 @@ class AdminC
                 if ($resp["PerfilId"] == 1) {
                     $totales = AdminM::Totales($table);
                 } else {
-                    $totales = 0;
+                    $totales[0] = 0;
                 }
 
                 if (is_null($totales[0]))

@@ -1,5 +1,5 @@
-<div class="col-sm-2"></div>
-<div class="col-lg-8 grid-margin stretch-card">
+<div class="col-sm-0"></div>
+<div class="col-lg-12 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
             <h4 class="card-title">Cargados</h4>
@@ -20,20 +20,12 @@
                     </thead>
                     <tbody>
 
-
-
                         <?php
 
+                        $cargados = new ArchivoC();
+                        $cargados->GetCharged($_SESSION["usrId"]);
 
-                        if (!isset($_SESSION)) {
-                            session_start();
-                            if (!empty($_SESSION["userId"])) {
-                                $cargados = new ArchivoC();
-                                $cargados->GetCharged($_SESSION["usrId"]);
-                            }
-                        }
                         ?>
-
 
                     </tbody>
                 </table>
@@ -41,4 +33,4 @@
         </div>
     </div>
 </div>
-<div class="col-sm-2"></div>
+<div class="col-sm-0"></div>
