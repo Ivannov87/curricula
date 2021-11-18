@@ -20,7 +20,7 @@ class Model
     {
         if ($roots == "inicio") {
             $page = $roots . ".php";
-        } else if ($roots == "registrar" || $roots == "usuarios") {
+        } else if ($roots == "registrar" || $roots == "upload" || $roots=="principal" || $roots=="cargados" || $roots=="generados") {
             $page = "view/modules/" . $roots . ".php";
         } else if ($roots == "index") {
             $page = "view/modules/ingreso.php";

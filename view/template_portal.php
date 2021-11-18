@@ -34,45 +34,45 @@
 <body>
 
 	<!-- <form method="post" action=""> -->
-		<div class="container-scroller">
+	<div class="container-scroller">
 
+		<?php
+		include "modules/banner.php";
+		?>
+
+		<div class="container-fluid page-body-wrapper">
+
+			<!-- Carga el menu -->
 			<?php
-			include "modules/banner.php";
+			include "modules/menu.php";
 			?>
 
-			<div class="container-fluid page-body-wrapper">
 
-				<!-- Carga el menu -->
-				<?php
-				include "modules/menu.php";
-				?>
+			<div class="main-panel">
+				<div class="content-wrapper">
+					<div class="row">
 
+						<!-- Carga Contenido de cada pagina -->
+						<?php
+						$roots = new Roots();
+						$roots->InicioRoot();
+						?>
 
-				<div class="main-panel">
-					<div class="content-wrapper">
-						<div class="row">
-
-							<!-- Carga Contenido de cada pagina -->
-							<?php
-							$roots = new Roots();
-							$roots->InicioRoot();
-							?>
-
-						</div>
 					</div>
-					<!-- content-wrapper ends -->
-					<!-- partial:partials/_footer.html -->
-					<footer class="footer">
-						<div class="d-sm-flex justify-content-center align-items-center">
-							<span class=" d-flex text-center"><a class=" d-flex text-center" href="https://khosting.com.mx">Khosting de México</a> &nbsp; Copyright © 2021. All rights reserved.</span>
-						</div>
-					</footer>
-					<!-- partial -->
 				</div>
-				<!-- main-panel ends -->
+				<!-- content-wrapper ends -->
+				<!-- partial:partials/_footer.html -->
+				<footer class="footer">
+					<div class="d-sm-flex justify-content-center align-items-center">
+						<span class=" d-flex text-center"><a class=" d-flex text-center" href="https://khosting.com.mx">Khosting de México</a> &nbsp; Copyright © 2021. All rights reserved.</span>
+					</div>
+				</footer>
+				<!-- partial -->
 			</div>
-			<!-- page-body-wrapper ends -->
+			<!-- main-panel ends -->
 		</div>
+		<!-- page-body-wrapper ends -->
+	</div>
 	<!-- </form> -->
 
 	<!-- JS -->
@@ -97,8 +97,10 @@
 			$(".alert").alert('close');
 		}, 3000);
 
-
-
+		$(function() {
+			$('.active').removeClass('active');
+			$('div.show').removeClass('show');
+		});
 	});
 </script>
 
