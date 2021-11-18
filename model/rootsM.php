@@ -19,7 +19,7 @@ class Model
     static public function InicioModel($roots)
     {
         if ($roots == "inicio") {
-            $page = $roots . ".php";
+            $page = "view/modules/principal.php";
         } else if ($roots == "registrar" || $roots == "upload" || $roots=="principal" || $roots=="cargados" || $roots=="generados") {
             $page = "view/modules/" . $roots . ".php";
         } else if ($roots == "index") {

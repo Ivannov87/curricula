@@ -19,11 +19,11 @@ if (!isset($_SESSION)) {
             </button>
         </div>
         <div>
-            <a class="navbar-brand brand-logo" href="#">
+            <a class="navbar-brand brand-logo" href="inicio.php?root=principal">
                 <!-- <img src="view/img/fepac_new_.png" alt="logo" /> -->
                 FEPAC
             </a>
-            <a class="navbar-brand brand-logo-mini" href="#">
+            <a class="navbar-brand brand-logo-mini" href="inicio.php?root=principal">
                 <img src="view/img/fepac_new_.png" alt="logo" />
             </a>
         </div>

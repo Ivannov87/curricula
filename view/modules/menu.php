@@ -59,7 +59,7 @@
       <div class="collapse" id="lay" >
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link collapsed" href="inicio.php?download">Descargar</a>
+            <a class="nav-link collapsed" href="inicio.php?root=download">Descargar</a>
           </li>
         </ul>
       </div>

@@ -2,58 +2,38 @@
 <div class="col-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Documentos</h4>
+            <h4 class="card-title">Cargar</h4>
             <p class="card-description">
-                Subir Documento
+                Documento
             </p>
-            <form class="forms-sample">
+            <form class="forms-sample" method="POST"  enctype="multipart/form-data" >
 
                 <div class="form-group">
-                    <label for="exampleFormControlFile1">Example file input</label>
-                    <input type="file" class="form-control-file" id="exampleFormControlFile1">
+                    <label for="exampleFormControlFile1">Elige un documento</label>
+                    <input type="file" accept=".pdf,.doc,.docx" class="form-control-file" id="documentoI" name="documentoI" required>
                 </div>
                 
                 <div class="form-group">
-                    <label for="exampleInputName1">Name</label>
-                    <input type="text" class="form-control" id="exampleInputName1" placeholder="Name">
+                    <label for="exampleInputDesc1">Descripción del cambio por</label>
+                    <input type="text" class="form-control" id="cambioI" placeholder="Descripción" name="cambioI" required >
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputEmail3">Email address</label>
-                    <input type="email" class="form-control" id="exampleInputEmail3" placeholder="Email">
+                 <div class="form-group">
+                    <label for="exampleInputName1">Subido por</label>
+                    <input type="text" class="form-control" id="usuarioI" placeholder="Name" name="usuarioI" value="<?php print $_SESSION["Usr"] ?>" readonly required >
+                    <input type="hidden" id="usuarioIdI" name="usuarioIdI" value="<?php print $_SESSION["usrId"] ?>"/>
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputPassword4">Password</label>
-                    <input type="password" class="form-control" id="exampleInputPassword4" placeholder="Password">
-                </div>
-                <div class="form-group">
-                    <label for="exampleSelectGender">Gender</label>
-                    <select class="form-control" id="exampleSelectGender">
-                        <option>Male</option>
-                        <option>Female</option>
-                    </select>
-                </div>
-                <div class="form-group">
-                    <label>File upload</label>
-                    <input type="file" name="img[]" class="file-upload-default">
-                    <div class="input-group col-xs-12">
-                        <input type="text" class="form-control file-upload-info" disabled="" placeholder="Upload Image">
-                        <span class="input-group-append">
-                            <button class="file-upload-browse btn btn-primary" type="button">Upload</button>
-                        </span>
-                    </div>
-                </div>
-                <div class="form-group">
-                    <label for="exampleInputCity1">City</label>
-                    <input type="text" class="form-control" id="exampleInputCity1" placeholder="Location">
-                </div>
-                <div class="form-group">
-                    <label for="exampleTextarea1">Textarea</label>
-                    <textarea class="form-control" id="exampleTextarea1" rows="4"></textarea>
-                </div>
+               
                 <button type="submit" class="btn btn-primary me-2">Submit</button>
-                <button class="btn btn-light">Cancel</button>
+                <a  class="btn btn-light" href="inicio.php?root=principal">Cancel</a>
             </form>
         </div>
     </div>
 </div>
 <div class="col-sm-3"></div>
+
+<?php 
+
+$registrar = new ArchivoC();
+$registrar -> InsertF();
+
+?>
