@@ -9,7 +9,7 @@
                 <!-- <code>.table</code> -->
             </p>
             <div class="table-responsive">
-                <table class="table table-striped">
+                <table class="table table-striped text-center">
                     <thead>
                         <tr>
                             <th>Id</th>
@@ -17,11 +17,11 @@
                             <th>Versión</th>
                             <th>Descripción del cambio</th>
                             <th>Fecha Registro</th>
+                            <th>Usuario</th>
+                            <th>Descargar</th>
                         </tr>
                     </thead>
                     <tbody>
-
-
 
                         <?php
                        

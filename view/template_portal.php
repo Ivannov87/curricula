@@ -32,6 +32,9 @@
 	<script src="view/js/popper.min.js"></script>
 	<script src="view/js/bootstrap.min.js"></script>
 
+	
+	
+
 </head>
 
 <body>
@@ -60,7 +63,7 @@
 						$roots = new Roots();
 						$roots->InicioRoot();
 						?>
-
+						
 					</div>
 				</div>
 				<!-- content-wrapper ends -->
@@ -95,7 +98,9 @@
 	<script src="view/vendors/jquery-toast-plugin/jquery.toast.min.js"></script>
 	<script src="view/js/notification.js"></script>
 	<script src="view/js/toastDemo.js"></script>
+	<script src="view/js/download.js"></script>
 	
+
 </body>
 
 
@@ -110,6 +115,8 @@
 			$('.active').removeClass('active');
 			$('div.show').removeClass('show');
 		});
+
+		
 	});
 </script>
 

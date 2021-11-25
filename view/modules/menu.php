@@ -1,3 +1,4 @@
+
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 
   <ul class="nav">
@@ -9,7 +10,7 @@
         <span class="menu-title">Archivo</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="archivos" >
+      <div class="collapse" id="archivos">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item ">
             <a class="nav-link collapsed" href="inicio.php?root=upload">Subir</a>
@@ -24,7 +25,7 @@
         <span class="menu-title">Cargados</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="cargados" >
+      <div class="collapse" id="cargados">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
             <p><a class="nav-link collapsed" href="inicio.php?root=cargados">Ver</a></p>
@@ -40,7 +41,7 @@
           <span class="menu-title">Generados</span>
           <i class="menu-arrow"></i>
         </a>
-        <div class="collapse" id="gen" >
+        <div class="collapse" id="gen">
           <ul class="nav flex-column sub-menu">
             <li class="nav-item">
               <a class="nav-link collapsed" href="inicio.php?root=generados">Ver</a>
@@ -56,10 +57,15 @@
         <span class="menu-title">Layout</span>
         <i class="menu-arrow"></i>
       </a>
-      <div class="collapse" id="lay" >
+      <div class="collapse" id="lay">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <a class="nav-link collapsed" href="inicio.php?root=download">Descargar</a>
+            <?php if ($_SESSION["Ingreso"] == true) {?>
+            <!-- Pruebas -->
+            <a class="nav-link collapsed"  href="#" onclick="DL('aHR0cDovL2xvY2FsaG9zdC9jdXJyaWN1bGEvbGF5b3V0L2xheW91dF9jdXJyaWN1bGEucGRm'); return false;">Descargar</a>
+            <!-- Producción -->
+            <!-- <a class="nav-link collapsed" href="aHR0cHM6Ly9mZXBhYy5jb20ubXgvY3VycmljdWxhL2xheW91dC9sYXlvdXRfY3VycmljdWxhLnBkZg==">Descargar</a> -->
+            <?php }?>
           </li>
         </ul>
       </div>

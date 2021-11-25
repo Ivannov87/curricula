@@ -18,7 +18,8 @@ $registrar -> InsertF();
 
                 <div class="form-group">
                     <label for="exampleFormControlFile1">Elige un documento</label>
-                    <input type="file" accept=".pdf,.doc,.docx" class="form-control-file" id="documentoI" name="documentoI" required>
+                    <!-- <input type="file" accept=".pdf,.doc,.docx" class="form-control-file" id="documentoI" name="documentoI" required> -->
+                    <input type="file" accept="application/pdf" class="form-control-file" id="documentoI" name="documentoI" required>
                 </div>
                 
                 <div class="form-group">
