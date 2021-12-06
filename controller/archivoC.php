@@ -25,6 +25,7 @@ class ArchivoC
             $type = $_FILES["documentoI"]["type"];
 
             $fileinfo = array(
+                "AreaId" => $_POST["areaId"],
                 "Directory" => $directory,
                 "Nombre" => $filename,
                 "Type" => $type,
@@ -42,6 +43,26 @@ class ArchivoC
                 if ($resp == true) {
 
                     //consultar totales y cargados y actualizar los contadores de las variables de sesion
+                    if (isset($_SESSION["usrId"])) {
+                        $table = "files";
+                        $cargados = AdminM::Cargados($_SESSION["usrId"], $table);
+
+                        if (is_null($cargados[0]))
+                            $cargados[0] = 0;
+
+                        if ($_SESSION["IsAdmin"] == true) {
+                            $totales = AdminM::Totales($table);
+                        } else {
+                            $totales[0] = 0;
+                        }
+
+                        if (is_null($totales[0]))
+                            $totales[0] = 0;
+
+                        $_SESSION["Tot"] = $totales[0];
+                        $_SESSION["Ups"] = $cargados[0];
+                    }
+
                     // para los totales en la pagina principal 
                     echo '<script type="text/javascript">
                     $(function ()
@@ -98,6 +119,7 @@ class ArchivoC
 
             echo '<tr>
         <td>' . $value["FileId"] . '</td>
+        <td>' . $value["Area"] . '</td>
         <td>' . $value["Nombre"] . '</td>
         <td>' . $value["Version"] . '</td>
         <td>' . $value["DescCambio"] . '</td>
@@ -105,10 +127,7 @@ class ArchivoC
         <td>
         <button type="button" class="btn btn-primary text-white" onclick="DF(\'' . base64_encode($value["Directory"] . "/" . $value["Nombre"]) . '\');"><i class="mdi mdi-download"></i></button>
         </td>
-    </tr>';
-
-
-           
+         </tr>';
         }
     }
     //generados
@@ -120,6 +139,7 @@ class ArchivoC
         foreach ($resp as $key => $value) {
             echo '<tr>
             <td>' . $value["FileId"] . '</td>
+            <td>' . $value["Area"] . '</td>
             <td>' . $value["Nombre"] . '</td>
             <td>' . $value["Version"] . '</td>
             <td>' . $value["DescCambio"] . '</td>

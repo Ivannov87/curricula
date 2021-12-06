@@ -1,8 +1,24 @@
-
 <nav class="sidebar sidebar-offcanvas" id="sidebar">
 
   <ul class="nav">
     <li class="nav-item nav-category">Documentacion</li>
+
+    <?php if ($_SESSION["IsAdmin"] == true) { ?>
+      <li class="nav-item">
+        <a class="nav-link collapsed" data-bs-toggle="collapse" href="#accesos" aria-expanded="false" aria-controls="accesos">
+          <i class="menu-icon mdi mdi-file-document-outline"></i>
+          <span class="menu-title">Accesos</span>
+          <i class="menu-arrow"></i>
+        </a>
+        <div class="collapse" id="accesos">
+          <ul class="nav flex-column sub-menu">
+            <li class="nav-item ">
+              <a class="nav-link collapsed" href="inicio.php?root=accesos">Nuevo</a>
+            </li>
+          </ul>
+        </div>
+      </li>
+    <?php } ?>
 
     <li class="nav-item">
       <a class="nav-link collapsed" data-bs-toggle="collapse" href="#archivos" aria-expanded="false" aria-controls="archivos">
@@ -60,12 +76,20 @@
       <div class="collapse" id="lay">
         <ul class="nav flex-column sub-menu">
           <li class="nav-item">
-            <?php if ($_SESSION["Ingreso"] == true) {?>
-            <!-- Pruebas -->
-            <a class="nav-link collapsed"  href="#" onclick="DL('aHR0cDovL2xvY2FsaG9zdC9jdXJyaWN1bGEvbGF5b3V0L2xheW91dF9jdXJyaWN1bGEucGRm'); return false;">Descargar</a>
-            <!-- Producción -->
-            <!-- <a class="nav-link collapsed" href="aHR0cHM6Ly9mZXBhYy5jb20ubXgvY3VycmljdWxhL2xheW91dC9sYXlvdXRfY3VycmljdWxhLnBkZg==">Descargar</a> -->
-            <?php }?>
+            <?php if ($_SESSION["Ingreso"] == true) { ?>
+              <!-- Pruebas -->
+              <a class="nav-link collapsed" href="#" onclick="DL('aHR0cDovL2xvY2FsaG9zdC9jdXJyaWN1bGEvbGF5b3V0L2xheW91dF9jdXJyaWN1bGEucGRm'); return false;">Plantilla</a>
+              <!-- Producción -->
+              <!-- <a class="nav-link collapsed" href="aHR0cHM6Ly9mZXBhYy5jb20ubXgvY3VycmljdWxhL2xheW91dC9sYXlvdXRfY3VycmljdWxhLnBkZg==">Descargar</a> -->
+            <?php } ?>
+          </li>
+          <li class="nav-item">
+            <?php if ($_SESSION["Ingreso"] == true) { ?>
+              <!-- Pruebas -->
+              <a class="nav-link collapsed" href="#" onclick="DL('aHR0cHM6Ly9sb2NhbGhvc3QvY3VycmljdWxhL2V4YW1wbGUvZXhhbXBsZS5wZGY='); return false;">Ejemplo</a>
+              <!-- Producción -->
+              <!-- <a class="nav-link collapsed" href="aHR0cHM6Ly9mZXBhYy5jb20ubXgvY3VycmljdWxhL2V4YW1wbGUvZXhhbXBsZS5wZGY=">Descargar</a> -->
+            <?php } ?>
           </li>
         </ul>
       </div>

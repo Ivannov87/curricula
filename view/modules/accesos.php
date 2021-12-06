@@ -2,36 +2,38 @@
 <div class="col-6 grid-margin stretch-card">
     <div class="card">
         <div class="card-body">
-            <h4 class="card-title">Cargar</h4>
+            <h4 class="card-title">Generar</h4>
             <p class="card-description">
-                Documento
+                Permisos
             </p>
+
             <form class="forms-sample" method="POST" enctype="multipart/form-data">
 
-                <div class="form-group">
-                    <label for="exampleFormControlFile1">Elige un documento</label>
-                    <!-- <input type="file" accept=".pdf,.doc,.docx" class="form-control-file" id="documentoI" name="documentoI" required> -->
-                    <input type="file" accept="application/pdf" class="form-control-file" id="documentoI" name="documentoI" required>
-                </div>
+
                 <div class="form-group">
                     <label for="Aselect">Área</label>
                     <select class="form-control form-control" id="Aselect">
                         <?php
-                        $areas = new AreaC();
-                        $areas->LoadA();
+                        if (headers_sent()) {
+                            $areas =  new AreaC();
+                            $areas->LoadA();
+                        }
                         ?>
                     </select>
                     <input type="hidden" id="area" name="areaId" required />
                 </div>
+
                 <div class="form-group">
-                    <label for="exampleInputDesc1">Descripción del cambio por</label>
-                    <input type="text" class="form-control" id="cambioI" placeholder="Descripción" name="cambioI" required>
+                    <label for="Uselect">Usuario</label>
+                    <select class="form-control form-control" id="Uselect">
+                        <?php
+                        $usuarios = new UsuarioC();
+                        $usuarios->LoadUC();
+                        ?>
+                    </select>
+                    <input type="hidden" id="usuario" name="usuarioId" required />
                 </div>
-                <div class="form-group">
-                    <label for="exampleInputName1">Subido por</label>
-                    <input type="text" class="form-control" id="usuarioI" placeholder="Name" name="usuarioI" value="<?php print $_SESSION["Usr"] ?>" readonly required>
-                    <input type="hidden" id="usuarioIdI" name="usuarioIdI" value="<?php print $_SESSION["usrId"] ?>" />
-                </div>
+
                 <div class="text-center">
                     <button type="submit" class="btn btn-primary me-2">Enviar</button>
                     <a class="btn btn-light" href="inicio.php?root=principal">Cancelar</a>
@@ -43,11 +45,13 @@
 </div>
 <div class="col-sm-3"></div>
 
+
 <script type="text/javascript">
     $(document).ready(function() {
 
         $(function() {
             $('#area').val('1');
+            $('#usuario').val('1');
             //alert($('#area').val());
         });
 
@@ -56,12 +60,12 @@
             //alert(area);
             $('#area').val(area);
         });
+
+        $('#Uselect').on('change', function() {
+            var usuario = this.value;
+            //alert(area);
+            $('#usuario').val(usuario);
+        });
+
     });
 </script>
-
-<?php
-
-$registrar = new ArchivoC();
-$registrar->InsertF();
-
-?>

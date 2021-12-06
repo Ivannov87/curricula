@@ -42,7 +42,7 @@ class AdminC
                 $_SESSION["usrId"] = $resp["UsuarioId"];
                 $_SESSION["Usr"] = $resp["Usuario"];
                 $_SESSION["Nom"] = $resp["Nombre"];
-
+                
                 // info para estadisticas iniciales 
                 $_SESSION["Tot"] = $totales[0];
                 $_SESSION["Ups"] = $cargados[0];

@@ -6,8 +6,9 @@ class ArchivoM extends Connector
     static public function InsertF($fileinfo, $table)
     {
 
-        $pdo = Connector::Connect()->prepare("INSERT INTO $table (Directory,Nombre,Type,Size,Version,FechaR,UsuarioId,DescCambio)
-         VALUES (:Directory,:Nombre,:Type,:Size,:Version,:FechaR,:UsuarioId,:DescCambio) ");
+        $pdo = Connector::Connect()->prepare("INSERT INTO $table (AreaId,Directory,Nombre,Type,Size,Version,FechaR,UsuarioId,DescCambio)
+         VALUES (:AreaId,:Directory,:Nombre,:Type,:Size,:Version,:FechaR,:UsuarioId,:DescCambio) ");
+        $pdo->bindParam(":AreaId", $fileinfo["AreaId"], PDO::PARAM_INT);
         $pdo->bindParam(":Directory", $fileinfo["Directory"], PDO::PARAM_STR);
         $pdo->bindParam(":Nombre", $fileinfo["Nombre"], PDO::PARAM_STR);
         $pdo->bindParam(":Type", $fileinfo["Type"], PDO::PARAM_STR);
@@ -27,7 +28,7 @@ class ArchivoM extends Connector
 
     static public function GetCharged($table, $id)
     {
-        $pdo = Connector::Connect()->prepare(" SELECT FileId,Directory,Nombre,Version,DescCambio,FechaR FROM $table WHERE UsuarioId = :userid ORDER BY FechaR DESC");
+        $pdo = Connector::Connect()->prepare(" SELECT f.FileId, a.Descripcion as Area, f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR FROM $table f INNER JOIN area a ON f.AreaId= a.AreaId WHERE f.UsuarioId = :userid ORDER BY f.FechaR DESC");
         $pdo->bindParam(":userid", $id, PDO::PARAM_INT);
         $pdo->execute();
         return $pdo->fetchAll();
@@ -36,7 +37,9 @@ class ArchivoM extends Connector
 
     static public function GetDoctos($table)
     {
-        $pdo = Connector::Connect()->prepare("SELECT f.FileId,f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR,u.Usuario FROM $table f INNER JOIN USUARIO u ON f.UsuarioId = u.UsuarioId ORDER BY Version DESC");
+        //falta revisar los permisos de las áreas a las que tienen acceso y despues hacer la consulta 
+
+        $pdo = Connector::Connect()->prepare("SELECT f.FileId,a.Descripcion as Area,f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR,u.Usuario FROM $table f INNER JOIN USUARIO u ON f.UsuarioId = u.UsuarioId INNER JOIN area a On f.AreaId = a.AreaId ORDER BY f.Version DESC");
         $pdo->execute();
         return $pdo->fetchAll();
         $pdo = null;
@@ -44,7 +47,7 @@ class ArchivoM extends Connector
 
     static public function Version($params, $table)
     {
-        $nombre = "%".$params["nombre"];
+        $nombre = "%" . $params["nombre"];
         $pdo = Connector::Connect()->prepare("SELECT COUNT(Nombre) FROM $table WHERE Nombre Like :nombre AND UsuarioId = :Id ");
         $pdo->bindParam(":nombre", $nombre, PDO::PARAM_STR);
         $pdo->bindParam(":Id", $params["uId"], PDO::PARAM_INT);

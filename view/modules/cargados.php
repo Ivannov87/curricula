@@ -15,6 +15,7 @@
                     <thead>
                         <tr>
                             <th>Id</th>
+                            <th>Área</th>
                             <th>Documento</th>
                             <th>Versión</th>
                             <th>Descripción del cambio</th>
