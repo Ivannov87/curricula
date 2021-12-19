@@ -18,7 +18,7 @@
                     <select class="form-control form-control" id="Aselect">
                         <?php
                         $areas = new AreaC();
-                        $areas->LoadA();
+                        $areas->LoadAP();
                         ?>
                     </select>
                     <input type="hidden" id="area" name="areaId" required />

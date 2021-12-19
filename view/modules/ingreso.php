@@ -6,7 +6,7 @@
 					<div class="col-lg-4 mx-auto">
 						<div class="auth-form-light text-left py-5 px-4 px-sm-5">
 							<div class="brand-logo">
-								<img src="view/img/fepac_new_.png" alt="logo">
+								<img src="view/img/fepac.png" alt="logo">
 							</div>
 							<!-- <h4>Hello! let's get started</h4>
               <h6 class="fw-light">Sign in to continue.</h6> -->

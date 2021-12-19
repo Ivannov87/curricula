@@ -35,14 +35,35 @@ class ArchivoM extends Connector
         $pdo = null;
     }
 
-    static public function GetDoctos($table)
+    static public function GetDoctos($table, $id)
     {
         //falta revisar los permisos de las áreas a las que tienen acceso y despues hacer la consulta 
 
-        $pdo = Connector::Connect()->prepare("SELECT f.FileId,a.Descripcion as Area,f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR,u.Usuario FROM $table f INNER JOIN USUARIO u ON f.UsuarioId = u.UsuarioId INNER JOIN area a On f.AreaId = a.AreaId ORDER BY f.Version DESC");
-        $pdo->execute();
-        return $pdo->fetchAll();
-        $pdo = null;
+        $tablea="accesos";
+        $pdoa = Connector::Connect()->prepare("SELECT AreaId FROM $tablea WHERE UsuarioId = :Id");
+        $pdoa->bindParam(":Id", $id, PDO::PARAM_INT);
+        $pdoa->execute();
+        $accesos = $pdoa->fetchAll();
+        $pdoa = null;
+
+        if (!is_null($accesos)) {
+
+            $areas="";
+            foreach($accesos as $key => $value)
+            {
+                $areas .= $value["AreaId"].',';
+            }
+
+            $straccesos = chop($areas,',');
+            //echo $straccesos;
+
+            if (strlen($straccesos) != 0) {
+                $pdo = Connector::Connect()->prepare("SELECT f.FileId,a.Descripcion as Area,f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR,u.Usuario FROM $table f INNER JOIN USUARIO u ON f.UsuarioId = u.UsuarioId INNER JOIN area a On f.AreaId = a.AreaId WHERE f.AreaId IN ($straccesos) ORDER BY f.Version DESC");
+                $pdo->execute();
+                return $pdo->fetchAll();
+                $pdo = null;
+            }
+        }
     }
 
     static public function Version($params, $table)

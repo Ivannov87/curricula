@@ -33,5 +33,24 @@ class AdminM extends Connector
         $pdo = null;
     }
 
+    static public function Recibidos($table,$id)
+    {
+        $pdo = Connector::Connect()->prepare("SELECT COUNT(*) FROM $table WHERE Destinatario = :Id AND Status = 0 ");
+        $pdo->bindParam(":Id", $id, PDO::PARAM_INT);
+        $pdo->execute();
+        return $pdo->fetch();
+        $pdo = null;
+    }
+
+    static public function Enviados($table,$id)
+    {
+        $pdo = Connector::Connect()->prepare("SELECT COUNT(*) FROM $table WHERE Remitente = :Id ");
+        $pdo->bindParam(":Id", $id, PDO::PARAM_INT);
+        $pdo->execute();
+        return $pdo->fetch();
+        $pdo = null;
+    }
+
+
     
 }

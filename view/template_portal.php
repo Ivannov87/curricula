@@ -7,7 +7,7 @@
 	<title>Gestión Carrera IC</title>
 	<meta name="description" content="Fomento Educativo Politécnico A.C.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="view/img/fepac_new_.png" class="border rounded-circle">
+	<link rel="shortcut icon" type="image/x-icon" href="view/img/fepac.ico" class="border rounded-circle">
 
 	<!-- <link rel="stylesheet" type="text/css" href="view/css/estilos.css"> -->
 	<!-- Bootstrap -->
@@ -22,7 +22,7 @@
 	<link rel="stylesheet" href="view/vendors/css/vendor.bundle.base.css">
 	<link rel="stylesheet" href="view/css/vertical-layout-light/style.css">
 	<link rel="stylesheet" href="view/vendors/datatables.net-bs4/dataTables.bootstrap4.css">
-	<link rel="stylesheet" href="js/select.dataTables.min.css">
+	<link rel="stylesheet" href="view/js/select.dataTables.min.css">
 
 	<!-- Notifications -->
 	<link rel="stylesheet" href="view/vendors/jquery-toast-plugin/jquery.toast.min.css">
@@ -31,6 +31,8 @@
 	<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
 	<script src="view/js/popper.min.js"></script>
 	<script src="view/js/bootstrap.min.js"></script>
+
+	
 
 	
 	
@@ -83,7 +85,7 @@
 
 	<!-- JS -->
 	<script src="view/vendors/js/vendor.bundle.base.js"></script>
-	<script src="vendors/chart.js/Chart.min.js"></script>
+	<script src="view/vendors/chart.js/Chart.min.js"></script>
 	<script src="view/vendors/bootstrap-datepicker/bootstrap-datepicker.min.js"></script>
 	<script src="view/vendors/progressbar.js/progressbar.min.js"></script>
 	<script src="view/js/off-canvas.js"></script>
@@ -91,7 +93,7 @@
 	<script src="view/js/template.js"></script>
 	<script src="view/js/settings.js"></script>
 	<script src="view/js/todolist.js"></script>
-	<script src="view/js/dashboard.js"></script>
+	
 	<script src="view/js/Chart.roundedBarCharts.js"></script>
 
 	<!-- Notification -->
@@ -100,7 +102,8 @@
 	<script src="view/js/toastDemo.js"></script>
 	<script src="view/js/download.js"></script>
 	
-
+	
+	
 </body>
 
 

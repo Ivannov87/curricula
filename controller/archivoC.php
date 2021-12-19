@@ -133,22 +133,29 @@ class ArchivoC
     //generados
     public function GetDoctos()
     {
-        $table = "files";
-        $resp = ArchivoM::GetDoctos($table);
+        if (isset($_SESSION["usrId"])) {
+            $id = $_SESSION["usrId"];
+            $table = "files";
+            $resp = ArchivoM::GetDoctos($table, $id);
 
-        foreach ($resp as $key => $value) {
-            echo '<tr>
-            <td>' . $value["FileId"] . '</td>
-            <td>' . $value["Area"] . '</td>
-            <td>' . $value["Nombre"] . '</td>
-            <td>' . $value["Version"] . '</td>
-            <td>' . $value["DescCambio"] . '</td>
-            <td>' . $value["FechaR"] . '</td>
-            <td>' . $value["Usuario"] . '</td>
-            <td>
-                <button type="button" class="btn btn-primary text-white" onclick="DF(\'' . base64_encode($value["Directory"] . "/" . $value["Nombre"]) . '\');"><i class="mdi mdi-download"></i></button>
-            </td>
-        </tr>';
+            if (!is_null($resp)) {
+
+                foreach ($resp as $key => $value) {
+                    echo '<tr>
+                        <td>' . $value["FileId"] . '</td>
+                        <td>' . $value["Area"] . '</td>
+                        <td>' . $value["Nombre"] . '</td>
+                        <td>' . $value["Version"] . '</td>
+                        <td>' . $value["DescCambio"] . '</td>
+                        <td>' . $value["FechaR"] . '</td>
+                        <td>' . $value["Usuario"] . '</td>
+                        <td>
+                            <button type="button" class="btn btn-primary text-white" onclick="DF(\'' . base64_encode($value["Directory"] . "/" . $value["Nombre"]) . '\');"><i class="mdi mdi-download"></i></button>
+                        </td>
+                    </tr>';
+
+                }
+            }
         }
     }
 

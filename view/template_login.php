@@ -7,7 +7,7 @@
 	<title>Gestión Carrera IC</title>
 	<meta name="description" content="Fomento Educativo Politécnico A.C.">
 	<meta name="viewport" content="width=device-width, initial-scale=1">
-	<link rel="shortcut icon" type="image/x-icon" href="view/img/fepac_new_.png" class="border rounded-circle">
+	<link rel="shortcut icon" type="image/x-icon" href="view/img/fepac.ico" class="border rounded-circle">
 
 	<!-- <link rel="stylesheet" type="text/css" href="view/css/estilos.css"> -->
 	<!-- Bootstrap -->
