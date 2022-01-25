@@ -17,8 +17,9 @@
                             <th>Id</th>
                             <th>Área</th>
                             <th>Documento</th>
+                            <th>Materia</th>
                             <th>Versión</th>
-                            <th>Descripción del cambio</th>
+                            <th>Descripción</th>
                             <th>Fecha Registro</th>
                             <th>Descargar</th>
                         </tr>

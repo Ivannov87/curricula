@@ -24,7 +24,11 @@
                     <input type="hidden" id="area" name="areaId" required />
                 </div>
                 <div class="form-group">
-                    <label for="exampleInputDesc1">Descripción del cambio por</label>
+                    <label for="exampleMateria">Materia</label>
+                    <input type="text" class="form-control" id="materiaI" placeholder="materiaI" name="materiaI" required>
+                </div>
+                <div class="form-group">
+                    <label for="exampleInputDesc1">Breve descripción del documento o cambio</label>
                     <input type="text" class="form-control" id="cambioI" placeholder="Descripción" name="cambioI" required>
                 </div>
                 <div class="form-group">

@@ -28,6 +28,7 @@ class ArchivoC
                 "AreaId" => $_POST["areaId"],
                 "Directory" => $directory,
                 "Nombre" => $filename,
+                "Materia"=> $_POST["materiaI"],
                 "Type" => $type,
                 "Size" => $size,
                 "Version" => $newversion,
@@ -121,6 +122,7 @@ class ArchivoC
         <td>' . $value["FileId"] . '</td>
         <td>' . $value["Area"] . '</td>
         <td>' . $value["Nombre"] . '</td>
+        <td>' . $value["Materia"] . '</td>
         <td>' . $value["Version"] . '</td>
         <td>' . $value["DescCambio"] . '</td>
         <td>' . $value["FechaR"] . '</td>
@@ -145,6 +147,7 @@ class ArchivoC
                         <td>' . $value["FileId"] . '</td>
                         <td>' . $value["Area"] . '</td>
                         <td>' . $value["Nombre"] . '</td>
+                        <td>' . $value["Materia"] . '</td>
                         <td>' . $value["Version"] . '</td>
                         <td>' . $value["DescCambio"] . '</td>
                         <td>' . $value["FechaR"] . '</td>

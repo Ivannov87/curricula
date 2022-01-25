@@ -6,11 +6,12 @@ class ArchivoM extends Connector
     static public function InsertF($fileinfo, $table)
     {
 
-        $pdo = Connector::Connect()->prepare("INSERT INTO $table (AreaId,Directory,Nombre,Type,Size,Version,FechaR,UsuarioId,DescCambio)
-         VALUES (:AreaId,:Directory,:Nombre,:Type,:Size,:Version,:FechaR,:UsuarioId,:DescCambio) ");
+        $pdo = Connector::Connect()->prepare("INSERT INTO $table (AreaId,Directory,Nombre,Materia,Type,Size,Version,FechaR,UsuarioId,DescCambio)
+         VALUES (:AreaId,:Directory,:Nombre,:Materia,:Type,:Size,:Version,:FechaR,:UsuarioId,:DescCambio) ");
         $pdo->bindParam(":AreaId", $fileinfo["AreaId"], PDO::PARAM_INT);
         $pdo->bindParam(":Directory", $fileinfo["Directory"], PDO::PARAM_STR);
         $pdo->bindParam(":Nombre", $fileinfo["Nombre"], PDO::PARAM_STR);
+        $pdo->bindParam(":Materia", $fileinfo["Materia"], PDO::PARAM_STR);
         $pdo->bindParam(":Type", $fileinfo["Type"], PDO::PARAM_STR);
         $pdo->bindParam(":Size", $fileinfo["Size"], PDO::PARAM_INT);
         $pdo->bindParam(":Version", $fileinfo["Version"], PDO::PARAM_STR);
@@ -28,7 +29,7 @@ class ArchivoM extends Connector
 
     static public function GetCharged($table, $id)
     {
-        $pdo = Connector::Connect()->prepare(" SELECT f.FileId, a.Descripcion as Area, f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR FROM $table f INNER JOIN area a ON f.AreaId= a.AreaId WHERE f.UsuarioId = :userid ORDER BY f.FechaR DESC");
+        $pdo = Connector::Connect()->prepare(" SELECT f.FileId, a.Descripcion as Area, f.Directory,f.Nombre,f.Materia,f.Version,f.DescCambio,f.FechaR FROM $table f INNER JOIN area a ON f.AreaId= a.AreaId WHERE f.UsuarioId = :userid ORDER BY f.FechaR DESC");
         $pdo->bindParam(":userid", $id, PDO::PARAM_INT);
         $pdo->execute();
         return $pdo->fetchAll();
@@ -58,7 +59,7 @@ class ArchivoM extends Connector
             //echo $straccesos;
 
             if (strlen($straccesos) != 0) {
-                $pdo = Connector::Connect()->prepare("SELECT f.FileId,a.Descripcion as Area,f.Directory,f.Nombre,f.Version,f.DescCambio,f.FechaR,u.Usuario FROM $table f INNER JOIN USUARIO u ON f.UsuarioId = u.UsuarioId INNER JOIN area a On f.AreaId = a.AreaId WHERE f.AreaId IN ($straccesos) ORDER BY f.Version DESC");
+                $pdo = Connector::Connect()->prepare("SELECT f.FileId,a.Descripcion as Area,f.Directory,f.Nombre,f.Materia,f.Version,f.DescCambio,f.FechaR,u.Usuario FROM $table f INNER JOIN USUARIO u ON f.UsuarioId = u.UsuarioId INNER JOIN area a On f.AreaId = a.AreaId WHERE f.AreaId IN ($straccesos) ORDER BY f.Version DESC");
                 $pdo->execute();
                 return $pdo->fetchAll();
                 $pdo = null;
